@@ -1,21 +1,19 @@
 # rust-autojump
+[crates.io](https://crates.io/crates/rust-autojump)
 
 ## Installation
 ```bash
 cargo install rust-autojump
 ```
 
-For the script to work add the following code to your `.bash_profile` or `.zshrc`
+For the script to work add the following code to your `.bash_profile` or `.zshrc`   
+or copy is to a script and run `source scriptname.sh`
 ```bash
 rj() {
     search_phrase=$1
     best_match=$(rust-autojump -s $search_phrase)
 
-    if [ $status -eq 0 ]
-    then
-      cd $best_match
-    fi
-
+    cd $best_match
     echo  $best_match
 }
 
@@ -28,13 +26,13 @@ chpwd_functions+=rust_jump_chpwd
 ```
 
 ## Usage
-```
-rj <path>     
-```
+autojump is a faster way to navigate your filesystem.   
+It works by maintaining a database of the directories you use the most from the command line.
 
-Eg.
+**Directories must be visited first before they can be jumped to.**
+
+Eg. jump to a directory that best matches `foo`
 ```
-$ rj tar
-/Users/mkurleto/courses/rust/rust-autojump/target
+rj foo     
 ```
 

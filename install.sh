@@ -2,11 +2,7 @@ rj() {
     search_phrase=$1
     best_match=$(rust-autojump -s $search_phrase)
 
-    if [ $status -eq 0 ]
-    then
-      cd $best_match
-    fi
-
+    cd $best_match
     echo  $best_match
 }
 
